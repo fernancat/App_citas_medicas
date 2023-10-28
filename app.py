@@ -191,7 +191,6 @@ class App(ttk.Frame):
                 WHERE id=?
             ''', (nombre_paciente, numero_telefono, motivo_cita, fecha_insertar, id_especifico))
         else:
-            # Modo inserción
             self.c.execute('''
                 INSERT INTO pacientes (nombre_paciente, numero_telefono, motivo_cita, fecha)
                 VALUES (?, ?, ?, ?)
@@ -271,17 +270,17 @@ class App(ttk.Frame):
 
 
        
-        def create_form_entry_login(self, label, variable):
-            form_field_container = ttk.Frame(root)
-            form_field_container.pack(fill=X, expand=YES, pady=5)
+        def Creador_Formulario_Login(self, label, variable):
+            Contenedor_Formulario = ttk.Frame(root)
+            Contenedor_Formulario.pack(fill=X, expand=YES, pady=5)
 
-            form_field_label = ttk.Label(master=form_field_container, text=label, width=15)
-            form_field_label.pack(side=LEFT, padx=12)
+            Label_Formulario = ttk.Label(master=Contenedor_Formulario, text=label, width=15)
+            Label_Formulario.pack(side=LEFT, padx=12)
 
-            form_input = ttk.Entry(master=form_field_container, textvariable=variable)
-            form_input.pack(side=LEFT, padx=5, fill=X, expand=YES)
+            entrada_formulario = ttk.Entry(master=Contenedor_Formulario, textvariable=variable)
+            entrada_formulario.pack(side=LEFT, padx=5, fill=X, expand=YES)
 
-            return form_input    
+            return entrada_formulario    
       
         label_titulo = ttk.Label(root,bootstyle=INFO,text="LOGIN",width=50)
         label_titulo.pack(fill=X,pady=10)
@@ -291,8 +290,8 @@ class App(ttk.Frame):
         usuario =ttk.StringVar(value="")
         password_usuario = ttk.StringVar(value="")
 
-        create_form_entry_login(self,"Usuario: ",usuario)
-        create_form_entry_login(self,"Contraseña : ",password_usuario)
+        Creador_Formulario_Login(self,"Usuario: ",usuario)
+        Creador_Formulario_Login(self,"Contraseña : ",password_usuario)
 
         boton_contenedor = ttk.Frame(root)
         boton_contenedor.pack(fill=X, expand=YES, pady=(15, 10))
@@ -316,9 +315,9 @@ class App(ttk.Frame):
         usuario_registro =ttk.StringVar(value="")
         password_usuario_registro = ttk.StringVar(value="")
         correo_electronico = ttk.StringVar(value="")
-        create_form_entry_login(self,"Usuario: ",usuario_registro)
-        create_form_entry_login(self,"Contraseña : ",password_usuario_registro)
-        create_form_entry_login(self,"Correo: ", correo_electronico)
+        Creador_Formulario_Login(self,"Usuario: ",usuario_registro)
+        Creador_Formulario_Login(self,"Contraseña : ",password_usuario_registro)
+        Creador_Formulario_Login(self,"Correo: ", correo_electronico)
 
         boton_contenedor2 = ttk.Frame(root)
         boton_contenedor2.pack(fill=X, expand=YES, pady=(15, 10))
